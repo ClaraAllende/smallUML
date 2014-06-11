@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en">  <head>    <title>smallUML documentation</title>    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css" rel="stylesheet">    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>    <!--[if lt IE 9]>      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>    <![endif]-->  </head>  <body>    <div class="container">      <h1>SmallUML</h1><h1>An UML diagram modeling tool written in Pharo Smalltalk</h1>
+<h2>1. (Not) Yet Another UML diagram dsl</h2><p>SmallUML is a DSL written in Pharo Smalltalk to help you create cool documentation for your system. 
+Some of its goodies are: </p><ul><li> Open a Diagram Browser for visualizing the existing diagrams</li><li> Create and edit diagrams programatically describing them with &quot;diagram code&quot; (a protocol of methods meant to describe diagrams)</li><li> Every diagram you build through the Diagram Browser it's saved as &quot;diagram code&quot;, so you can share it as code that will reproduce your diagram :) That means that diagrams can 'travel' along it's package when you commit your changes with Monticello! And then they can be edited by anybody, they're not just a pretty picture.</li><li> You can export your diagram as a PNG picture or you can export it's &quot;diagram code&quot; as a workspace.</li><li> Class Diagrams and Object Diagrams can be created using SmallUML (more to come)</li></ul>
+
+<h2>2.  How does it work?</h2><p>In SmallUML all the diagrams can be seen as nodes and connectors, each one of them having their own type, depending on the diagram. For example, for class diagrams nodes are &quot;boxes&quot; (class boxes, interface boxes, trait boxes, etc) and the connectors are associations (composition, hierarchy, uses, etc); for object diagrams nodes are circles (objects, collections, etc), and the connectors are composition associations between the objects.</p>
+<p>SmallUML doesn't generate diagrams automatically (not yet), but instead relies on the developer/documenter(?) knowledge of <em>which parts</em> of the system need to be communicated.</p>
+<p>For creating a class diagram, just evaluate in a workspace:
+<figure><pre><code class="Smalltalk">DiagramsHolder openDiagramBrowser .</code></pre><figcaption></figcaption></figure></p>
+<p>You will see all the available diagrams. Right click on any of them, select <em>Add diagram</em>, and provide a name.
+Then if you browse <code>DiagramHolder</code> class, you will find a method with the name you have provided, in which you can define the nodes and relations:
+<figure><img src="figures/diagramsHolder.png" width="60%"></img><figcaption></figcaption></figure></p>
+<p>So for example, the following code snippet
+<figure><pre><code class="Smalltalk">
+pirates
+	| d pirate byteSymbol treasureQuest mission ship |
+	pirate := ClassBox named: 'Pirate'.
+	pirate instanceVariables: #('alcoholLevel').
+	pirate instanceMethods: #(#alcoholLevel: #items: #isUsefulForTheMission: #isDrunkEnough #includesItem:).	&quot;Positioning&quot;
+	pirate position: 663.0 @ 201.0.
+	byteSymbol := ClassBox named: 'ByteSymbol'.	&quot;Positioning&quot;
+	byteSymbol position: 951.0 @ 253.0.
+	treasureQuest := ClassBox named: 'TreasureQuest'.
+	treasureQuest instanceMethods: #(#canUsePirate:).	&quot;Positioning&quot;
+	treasureQuest position: 50.0 @ 240.0.
+	mission := ClassBox named: 'Mission'.
+	mission instanceMethods: #(#canUsePirate:).	&quot;Positioning&quot;
+	mission position: 57.0 @ 26.0.
+	ship := ClassBox named: 'Ship'.
+	ship instanceMethods: #(#mission: #acceptIntoTripulation:).	&quot;Positioning&quot;
+	ship position: 318.0 @ 232.0.	&quot;Relationships&quot;
+	pirate hasLotsOf: byteSymbol labeledAs: 'items'.	&quot;Relationships&quot;
+	treasureQuest inheritsFromClass: mission.	&quot;Relationships&quot;
+	ship hasA: treasureQuest labeledAs: 'mission'.
+	ship hasLotsOf: pirate labeledAs: 'tripulation'.
+	d := (ClassDiagram new name: 'Pirates!')
+		addDiagramNode: pirate;
+		addDiagramNode: byteSymbol;
+		addDiagramNode: treasureQuest;
+		addDiagramNode: mission;
+		addDiagramNode: ship.
+	^ d</code></pre><figcaption></figcaption></figure></p>
+<p>generates this diagram:
+<figure><img src="figures/pirates.png" width="90%"></img><figcaption></figcaption></figure></p>
+
+    </div>    <script src="https://code.jquery.com/jquery.js"></script>    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>    <script>hljs.initHighlightingOnLoad();</script>  </body></html>
