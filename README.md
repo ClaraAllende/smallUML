@@ -37,7 +37,7 @@ DiagramsHolder openDiagramBrowser .
 
 You will see all the available diagrams\. Right click on any of them, select *Add diagram*, and provide a name\.
 Then if you browse `DiagramHolder` class, you will find a method with the name you have provided, in which you can define the nodes and relations:
-<a name=""></a><figure><img src="figures/diagramsHolder.png" width="60%"></img><figcaption>file://figures/diagramsHolder.png</figcaption></figure>
+<a name=""></a><figure><img src="figures/diagramsHolder.png" width="60%"></img><figcaption>Figure 1: DiagramsHolder</figcaption></figure>
 
 So for example, the following code snippet
 
@@ -76,6 +76,6 @@ pirates
 
 
 generates this diagram:
-<a name=""></a><figure><img src="figures/pirates.png" width="90%"></img><figcaption>file://figures/pirates.png</figcaption></figure>
+<a name=""></a><figure><img src="figures/pirates.png" width="90%"></img><figcaption> Figure 2: A smallUML class diagram</figcaption></figure>
 
 
