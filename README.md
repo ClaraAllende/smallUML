@@ -79,3 +79,21 @@ generates this diagram:
 <a name=""></a><figure><img src="figures/pirates.png" width="90%"></img><figcaption> Figure 2: A smallUML class diagram</figcaption></figure>
 
 
+
+##3\. How do I get SmallUML in my image?
+
+Simple: just copy the following script in a workspace:
+
+
+```smalltalk
+Gofer it
+		smalltalkhubUser: 'Uqbar' project: 'SmallUml';
+		configurationOf: 'SmallUML';
+		loadVersion: #stable .
+```
+
+
+
+*Et voila\!* ready to use :\)
+
+

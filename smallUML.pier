@@ -61,4 +61,16 @@ pirates
 generates this diagram:
 + Figure 2: A smallUML class diagram>file://figures/pirates.png|width=90+
 
+!!How do I get SmallUML in my image?
+
+Simple: just copy the following script in a workspace:
+[[[language=Smalltalk
+	Gofer it
+		smalltalkhubUser: 'Uqbar' project: 'SmallUml';
+		configurationOf: 'SmallUML';
+		loadVersion: #stable .  
+]]]
+
+''Et voila!'' ready to use :)
+
 
