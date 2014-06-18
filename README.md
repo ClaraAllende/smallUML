@@ -97,3 +97,18 @@ Gofer it
 *Et voila\!* ready to use :\)
 
 
+
+##4\.  Doubts? Complaints? Suggestions? 
+
+SmallUML is a work in progress, and the most important thing to keep on improving it is your collaboration\.
+So, if you have doubts, suggestions, feature requests or bug reports, please fill them in at the [issue tracker](https://github.com/ClaraAllende/smallUML/issues)\.
+
+
+
+##5\.  To come:
+&nbsp;
+
+-  Screencast on how to create and customize diagrams
+-  Improve class diagrams
+-  Sequence diagrams
+

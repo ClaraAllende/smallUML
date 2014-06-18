@@ -73,4 +73,13 @@ Simple: just copy the following script in a workspace:
 
 ''Et voila!'' ready to use :)
 
+!! Doubts? Complaints? Suggestions? 
+
+SmallUML is a work in progress, and the most important thing to keep on improving it is your collaboration.
+So, if you have doubts, suggestions, feature requests or bug reports, please fill them in at the *issue tracker>https://github.com/ClaraAllende/smallUML/issues*.
+
+!! To come:
+- Screencast on how to create and customize diagrams
+- Improve class diagrams
+- Sequence diagrams
 
